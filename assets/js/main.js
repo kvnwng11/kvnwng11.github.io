@@ -116,6 +116,7 @@
     if (section) {
       e.preventDefault()
 
+      let navbar = select('#navbar')
       let header = select('#header')
       let sections = select('section', true)
       let navlinks = select('#navbar .nav-link', true)
@@ -128,6 +129,13 @@
           item.classList.remove('active')
         }
       })
+
+      if (navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile')
+        let navbarToggle = select('.mobile-nav-toggle')
+        navbarToggle.classList.toggle('bi-list')
+        navbarToggle.classList.toggle('bi-x')
+      }
 
       if (!header.classList.contains('header-top')) {
         header.classList.add('header-top')
